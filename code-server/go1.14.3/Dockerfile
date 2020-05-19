@@ -12,4 +12,4 @@ EXPOSE 8080
 VOLUME [ "/project" ]
 VOLUME [ "/code-server/data" ]
 WORKDIR /home/coder/project
-CMD ["/code-server/code-server", "--bind-addr", "0.0.0.0:8080", "--user-data-dir","/code-server/data/user-data-dir", "--extensions-dir","/code-server/data/extensions-dir", "/project"]
+CMD ["/code-server/bin/code-server", "--bind-addr", "0.0.0.0:8080", "--user-data-dir","/code-server/data/user-data-dir", "--extensions-dir","/code-server/data/extensions-dir", "/project"]
