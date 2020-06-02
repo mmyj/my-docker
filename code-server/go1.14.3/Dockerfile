@@ -1,5 +1,5 @@
 FROM golang:1.14.3-buster
-ARG VERSION=3.3.1
+ARG VERSION=3.4.0
 RUN wget https://github.com/cdr/code-server/releases/download/v${VERSION}/code-server-${VERSION}-linux-amd64.tar.gz \
     && tar -xvf code-server-${VERSION}-linux-amd64.tar.gz \
     && rm code-server-${VERSION}-linux-amd64.tar.gz \
