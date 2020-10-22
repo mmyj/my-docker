@@ -2,13 +2,14 @@ FROM debian:10
 ARG VERSION=3.6.0
 ARG GO_VERSION=1.15.3
 
-RUN apt-get update \
-    && apt-get install -y wget \
-    && rm -rf /var/lib/apt/lists/* \ 
+RUN set -eux \
+    && apt-get update \
+    && apt-get install -y vim curl wget git \
+    && rm -rf /var/lib/apt/lists/*  
 
-RUN wget https://github.com/cdr/code-server/releases/download/v${VERSION}/code-server-${VERSION}-linux-amd64.tar.gz \
-    && tar -xvf code-server-${VERSION}-linux-amd64.tar.gz \
-    && rm code-server-${VERSION}-linux-amd64.tar.gz \
+RUN wget https://github.com/cdr/code-server/releases/download/v${VERSION}/code-server-${VERSION}-linux-amd64.tar.gz -O code-server.tar.gz \
+    && tar -xvf code-server.tar.gz \
+    && rm code-server.tar.gz \
     && mv code-server-${VERSION}-linux-amd64 /code-server
 RUN mkdir /project \
     && mkdir -p /code-server/data/user-data-dir \
