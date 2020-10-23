@@ -14,7 +14,8 @@ RUN mkdir /project \
     && mkdir -p /code-server/data/user-data-dir \
     && mkdir -p /code-server/data/extensions-dir
 
-RUN wget -q -O - https://git.io/vQhTU | bash -s -- --version ${GO_VERSION}
+RUN wget -q -O - https://git.io/vQhTU | bash -s -- --version ${GO_VERSION} \
+    && source /root/.bashrc
 
 ENV PASSWORD=code-server
 EXPOSE 8080
