@@ -1,6 +1,6 @@
 FROM debian:10
-ARG VERSION=3.6.0
-ARG GO_VERSION=1.15.3
+ARG VERSION=3.7.4
+ARG GO_VERSION=1.15.5
 
 RUN set -eux \
     && apt-get update \
