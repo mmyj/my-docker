@@ -1,6 +1,5 @@
-FROM debian:10
+FROM golang:1.15.5-buster
 ARG VERSION=3.7.4
-ARG GO_VERSION=1.15.5
 
 RUN set -eux \
     && apt-get update \
@@ -14,8 +13,6 @@ RUN wget https://github.com/cdr/code-server/releases/download/v${VERSION}/code-s
 RUN mkdir /project \
     && mkdir -p /code-server/data/user-data-dir \
     && mkdir -p /code-server/data/extensions-dir
-
-RUN wget -q -O - https://git.io/vQhTU | bash -s -- --version ${GO_VERSION} 
 
 ENV PASSWORD=code-server
 EXPOSE 8080
